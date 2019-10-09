@@ -3,8 +3,9 @@ public class King extends Piece{
 	public boolean canCastle;
 	public boolean inCheck;
 	
-	public King(String type, Board b) {
-		super(type, b);
+	public King(String type, Board b, Player p) {
+		super(type, b, p);
+		this.special=true;
 	}
 	
 	public void move() {

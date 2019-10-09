@@ -1,8 +1,8 @@
 
 public class Knight extends Piece{
 
-	public Knight(String type, Board b) {
-		super(type, b);
+	public Knight(String type, Board b, Player p) {
+		super(type, b, p);
 	}
 	
 	public void move() {

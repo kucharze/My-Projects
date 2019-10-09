@@ -2,8 +2,8 @@
 public class Rook extends Piece{
 	private boolean canCastle;
 	
-	public Rook(String type, Board b) {
-		super(type, b);
+	public Rook(String type, Board b, Player p) {
+		super(type, b, p);
 		this.canCastle=true;
 	}
 	

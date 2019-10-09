@@ -1,8 +1,8 @@
 
 public class Queen extends Piece{
 	
-	public Queen(String type, Board b) {
-		super(type,b);
+	public Queen(String type, Board b, Player p) {
+		super(type,b,p);
 	}
 	
 	public void move() {

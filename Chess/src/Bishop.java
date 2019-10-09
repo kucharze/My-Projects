@@ -1,8 +1,8 @@
 
 public class Bishop extends Piece{
 
-	public Bishop(String type, Board b) {
-		super(type, b);
+	public Bishop(String type, Board b, Player p) {
+		super(type, b, p);
 		// TODO Auto-generated constructor stub
 	}
 	

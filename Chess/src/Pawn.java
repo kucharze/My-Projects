@@ -3,8 +3,8 @@ public class Pawn extends Piece{
 	//private String type;
 	private Board b;
 	
-	public Pawn(String type, Board b) {
-		super(type,b);
+	public Pawn(String type, Board b, Player p) {
+		super(type,b,p);
 	}
 	
 	public void move() {
