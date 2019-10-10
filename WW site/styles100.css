@@ -1,0 +1,141 @@
+
+a:visited{
+  color:#996633;
+}
+
+a:hover{
+  color:#996633;
+  font-size:16pt;
+  background-color:#efe4b0;
+}
+
+body{
+  font-size: 16px
+  font-family:Arial, Verdana,sans-serif;
+  padding:0;
+  margin:0;
+  background-color: #efe4b0;
+}
+
+p.a {
+  font-style: serif;
+  color: #800000;
+  text-align: left;
+  font-size: 18px;
+  text-align: center;
+}
+p.b {
+  font-style: serif;
+  color: #800000;
+  text-align: left;
+  font-size: 16px;
+}
+
+p.c {
+	font-size: 16px
+    font-family:Helvetica,sans-serif;
+	text-align: center;
+	padding-left:10px
+	}
+
+.border1 {
+	background-color:#e9db95;
+	height: 50%;
+	padding-left:10px;
+	border-style: solid;
+}
+
+cite { 
+	color: #996633;
+	font-family: serif;
+	font-size: 14px;
+}
+
+figure {
+  border-top: none;
+  padding-top: 0;
+}
+figcaption {
+  padding: 0.5em;
+  border: thin silver solid;
+  border-bottom: none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+    text-align:center; 
+   font-family: sans-serif;
+	color: #663300;
+	font-size:18px;  
+	border-color: #804000;
+}
+
+h2{
+    text-align:center; 
+   font-family: sans-serif;
+	color: #696969;
+	font-size:18px;  
+}
+
+h3 {
+	text-align: left;
+	background-color:#cc6600;
+	font-size: 16px; 	
+	font-family:serif;
+	  border: 1px solid #b2ad7f;
+  border-collapse: collapse;
+}
+
+.nav ul {
+      list-style: none;
+      background-color: #F0E68C;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+
+.nav li {
+      font-family: Arial, Verdana, sans-serif;
+      font-size: 14px;
+      line-height: 40px;
+      height: 20px;
+      border-bottom: 1px solid #888;
+    }
+nav a {
+      text-decoration: none;
+      color: #fff;
+    }	
+	
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #F0E68C;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 4px;
+  text-decoration: none;
+}
+
+li {
+  display: block;
+  color: #F0E68C;
+  padding: 6px;
+}
+	
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
