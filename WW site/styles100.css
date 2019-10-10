@@ -4,10 +4,12 @@ a:visited{
 }
 
 a:hover{
-  color:#996633;
+  color:gold;
   font-size:16pt;
-  background-color:#efe4b0;
+  background-color:#996633;
 }
+
+
 
 body{
   font-size: 16px
