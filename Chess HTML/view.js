@@ -14,6 +14,30 @@ class view{
     }
     
     displayBoard(row1,row2,row3,row4,row5,row6,row7,row8){
+        while(this.row1.hasChildNodes()){
+            this.row1.removeChild(this.row1.lastChild);
+        }
+        while(this.row2.hasChildNodes()){
+            this.row2.removeChild(this.row2.lastChild);
+        }
+        while(this.row3.hasChildNodes()){
+            this.row3.removeChild(this.row3.lastChild);
+        }
+        while(this.row4.hasChildNodes()){
+            this.row4.removeChild(this.row4.lastChild);
+        }
+        while(this.row5.hasChildNodes()){
+            this.row5.removeChild(this.row5.lastChild);
+        }
+        while(this.row6.hasChildNodes()){
+            this.row6.removeChild(this.row6.lastChild);
+        }
+        while(this.row7.hasChildNodes()){
+            this.row7.removeChild(this.row7.lastChild);
+        }
+        while(this.row8.hasChildNodes()){
+            this.row8.removeChild(this.row8.lastChild);
+        }
         this.displayrowone(row1);
         this.displayrowtwo(row2);
         this.displayrowthree(row3);
@@ -25,18 +49,16 @@ class view{
     }
     
     displayrowone(row){
-        while(this.row1.hasChildNodes()){
-            this.row1.removeChild(this.row1.lastChild());
-        }
+        
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board1";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -47,19 +69,16 @@ class view{
     }
     
     displayrowtwo(row){
-        while(this.row2.hasChildNodes()){
-            this.row2.removeChild(this.row1.lastChild());
-        }
         
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board2";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -71,18 +90,16 @@ class view{
     
     
     displayrowthree(row){
-        while(this.row3.hasChildNodes()){
-            this.row3.removeChild(this.row1.lastChild());
-        }
+
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board3";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -92,20 +109,18 @@ class view{
         }
     }
     displayrowfour(row){
-        while(this.row4.hasChildNodes()){
-            this.row4.removeChild(this.row1.lastChild());
-        }
+
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board4";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
+                //console.log(p.src);
                 p.title=row[i].name+row[i].player;
             }
            
@@ -114,18 +129,15 @@ class view{
     }
     
     displayrowfive(row){
-        while(this.row5.hasChildNodes()){
-            this.row5.removeChild(this.row1.lastChild());
-        }
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board5";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -136,18 +148,15 @@ class view{
     }
     
     displayrowsix(row){
-        while(this.row6.hasChildNodes()){
-            this.row6.removeChild(this.row1.lastChild());
-        }
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board6";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -158,18 +167,15 @@ class view{
     }
     
     displayrowseven(row){
-        while(this.row7.hasChildNodes()){
-            this.row7.removeChild(this.row1.lastChild());
-        }
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board7";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;
@@ -181,18 +187,15 @@ class view{
     
     
     displayroweight(row){
-        while(this.row8.hasChildNodes()){
-            this.row8.removeChild(this.row1.lastChild());
-        }
         for(var i=0; i<row.length; i++){
             let p = document.createElement("img");
             if((row[i]) == (null)){
-                console.log("Printing board");
-                p.src="./Images/board.png";
+                //console.log("Printing board");
+                p.src="./Images/board.jpg";
                 p.title="Board8";
             }
             else{
-                console.log("printing a piece");
+                //console.log("printing a piece");
                 p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
                 console.log(p.src);
                 p.title=row[i].name+row[i].player;

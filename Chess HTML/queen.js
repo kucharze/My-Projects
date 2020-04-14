@@ -1,6 +1,6 @@
 class queen extends piece{
     
-    constructor(player, pos){
-        super(player, pos,"queen");
+    constructor(player, x,y){
+        super(player, x,y,"queen");
     }
 }

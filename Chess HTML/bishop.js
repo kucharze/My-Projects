@@ -1,7 +1,7 @@
 class bishop extends piece{
     
-    constructor(player, pos){
-        super(player,pos,"bishop");
+    constructor(player, x,y){
+        super(player,x,y,"bishop");
     }
     
     move(){

@@ -6,7 +6,7 @@
     <body>
         <h1>Welcome to Chess</h1>
         <p>Click new game below to begin a new game!</p>
-        <label id="New">New game</label>
+        <button id="New" onclick="b.newGame()">New game</button>
             <div id="row8"></div>
             <div id="row7"></div>
             <div id="row6"></div>
@@ -24,14 +24,13 @@
         <script src="king.js"></script>
         <script src="queen.js"></script>
         <script src="knight.js"></script>
-        <script src="position.js"></script>
         <script src="view.js"></script>
         <script>
-            
-            document.getElementById("New").addEventListener("click",function(){
-                var b=new Board();
-                b.newGame();
-            });
+            var b=new Board();
+            //document.getElementById("New").addEventListener("click",function(){
+                
+               // b.newGame();
+           // });
             
         </script>
     </body>

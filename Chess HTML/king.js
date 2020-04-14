@@ -1,7 +1,7 @@
 class king extends piece{
     
-    constructor(player, pos){
-        super(player,pos,"king");
+    constructor(player,x,y){
+        super(player,x,y,"king");
     }
     
     move(){

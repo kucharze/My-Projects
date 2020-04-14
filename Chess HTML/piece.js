@@ -3,9 +3,10 @@ class piece{
     //Player: white or black
     //position: x,y
     //Name: what the piece is actually called
-    constructor(player, pos, name){
+    constructor(player, x,y, name){
         this.player=player;
-        this.pos=pos;//position of the piece
+        this.x=x;
+        this.y=y;
         this.name=name;//what the piece is called
         //this.legalMoves=[];
     }

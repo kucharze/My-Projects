@@ -3,14 +3,81 @@ class Board{
     constructor(){
         this.turn=1;
         this.view=new view(this);
-        this.row1=[new king("black",new position(1,2)), new king("white",new position(1,2))];
-        this.row2=[new pawn("black",new position(2,1)), new pawn("white",new position(2,2)), null];
-        this.row3=[new queen("black",new position(2,1)),new queen("white",new position(2,1))];
-        this.row4=[null];
-        this.row5=[new rook("white",new position(7,1)),new rook("black",new position(7,1))];
-        this.row6=[new knight("white",new position(7,1)),new knight("black",new position(7,1))];
-        this.row7=[new pawn("white",new position(7,1)), new king("white",new position(7,2)), null, null];
-        this.row8=[new bishop("white",new position(7,1)),new bishop("black",new position(7,1))];
+        //this.blackPlayer=new player("black",this);
+        //this.whitePlayer=new player("white",this);
+        this.gameBoard=[[new rook("white",0,0),
+                   new knight("white",0,1),
+                   new bishop("white",0,2),
+                   new king("white",0,3), 
+                   new queen("white",0,4),
+                   new bishop("white",0,5),
+                   new knight("white",0,6),
+                   new rook("white",0,7)]
+                        
+                    ,[new pawn("white",1,0), 
+                   new pawn("white",1,1),
+                   new pawn("white",1,2),
+                   new pawn("white",1,3),
+                   new pawn("white",1,4),
+                   new pawn("white",1,5),
+                   new pawn("white",1,6),
+                   new pawn("white",1,7)]
+                        
+                        ,[null,null,null,null,null,null,null,null]
+                        ,[null,null,null,null,null,null,null,null]
+                        ,[null,null,null,null,null,null,null,null]
+                        ,[null,null,null,null,null,null,null,null]
+                        ,[new pawn("black",6,0), 
+                   new pawn("black",6,1),
+                   new pawn("black",6,2),
+                   new pawn("black",6,3),
+                   new pawn("black",6,4),
+                   new pawn("black",6,5),
+                   new pawn("black",6,6),
+                   new pawn("black",6,7)]
+                        
+                        ,[]];
+        
+        this.row1=[new rook("white",0,0),
+                   new knight("white",0,1),
+                   new bishop("white",0,2),
+                   new king("white",0,3), 
+                   new queen("white",0,4),
+                   new bishop("white",0,5),
+                   new knight("white",0,6),
+                   new rook("white",0,7)];
+        
+        this.row2=[new pawn("white",1,0), 
+                   new pawn("white",1,1),
+                   new pawn("white",1,2),
+                   new pawn("white",1,3),
+                   new pawn("white",1,4),
+                   new pawn("white",1,5),
+                   new pawn("white",1,6),
+                   new pawn("white",1,7)];
+        
+        this.row3=[null,null,null,null,null,null,null,null];
+        this.row4=[null,null,null,null,null,null,null,null];
+        this.row5=[null,null,null,null,null,null,null,null];
+        this.row6=[null,null,null,null,null,null,null,null];
+        
+        this.row7=[new pawn("black",6,0), 
+                   new pawn("black",6,1),
+                   new pawn("black",6,2),
+                   new pawn("black",6,3),
+                   new pawn("black",6,4),
+                   new pawn("black",6,5),
+                   new pawn("black",6,6),
+                   new pawn("black",6,7)];
+        
+        this.row8=[new rook("black",7,0),
+                   new knight("black",7,1),
+                   new bishop("black",7,2),
+                   new king("black",7,3), 
+                   new queen("black",7,4),
+                   new bishop("black",7,5),
+                   new knight("black",7,6),
+                   new rook("black",7,7)];
     }
     
     swapTurn(){
@@ -36,6 +103,10 @@ class Board{
     
     newGame(){//starts and sets up a new game
         this.view.displayBoard(this.row1, this.row2, this.row3, this.row4, this.row5, this.row6, this.row7,this.row8);
+    }
+    
+    resetGame(){//reset the game
+        
     }
     
 }

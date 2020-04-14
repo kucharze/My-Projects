@@ -1,7 +1,7 @@
 class pawn extends piece{
     
-    constructor(player, pos){
-        super(player,pos,"pawn");
+    constructor(player, x,y){
+        super(player,x,y,"pawn");
         this.hasMoved=false;
     }
     
