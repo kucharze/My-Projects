@@ -1,5 +1,7 @@
 class view{
     //This class displays what the user sees
+    //This class uses resources from the following sites
+    //https://stackoverflow.com/questions/5913927/get-child-node-index
     
     constructor(board){
         this.board=board;
@@ -13,28 +15,61 @@ class view{
         this.row8=document.getElementById("row8");
         
         this.row1.addEventListener("click",function(){
-                alert("Row 1");
+            //this.row1.childNodes;
+            let child = event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 1 "+i);
         });
         this.row2.addEventListener("click",function(){
-                alert("Row 2");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 2 "+i);
         });
         this.row3.addEventListener("click",function(){
-                alert("Row 3");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 3 "+i);
         });
         this.row4.addEventListener("click",function(){
-                alert("Row 4");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 4 "+i);
         });
         this.row5.addEventListener("click",function(){
-                alert("Row 5");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 5 "+i);
         });
         this.row6.addEventListener("click",function(){
-                alert("Row 6");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 6 "+i);
         });
         this.row7.addEventListener("click",function(){
-                alert("Row 7");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 7 "+i);
         });
         this.row8.addEventListener("click",function(){
-                alert("Row 8");
+            let child=event.target;
+            var i = 0;
+            while( (child = child.previousSibling) != null ) 
+              i++;
+            alert("Row 8 "+i);
         });
     }
     
@@ -119,57 +154,57 @@ class view{
             this.row4.appendChild(p);
         }
         
-        for(var i=0; i<row5.length; i++){
+        for(var i=0; i<gameBoard[4].length; i++){
             let p = document.createElement("img");
-            if((row5[i]) == (null)){
+            if((gameBoard[4][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board5";
             }
             else{
-                p.src="./Images/" + row5[i].player + "-" + row5[i].name + ".jpg";
-                p.title=row5[i].name+row5[i].player;
+                p.src="./Images/" + gameBoard[4][i].player + "-" + gameBoard[4][i].name + ".jpg";
+                p.title=gameBoard[4][i].name+gameBoard[4][i].player;
             }
            
             this.row5.appendChild(p);
         }
         
-        for(var i=0; i<row6.length; i++){
+        for(var i=0; i<gameBoard[5].length; i++){
             let p = document.createElement("img");
-            if((row6[i]) == (null)){
+            if((gameBoard[5][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board6";
             }
             else{
-                p.src="./Images/" + row6[i].player + "-" + row6[i].name + ".jpg";
-                p.title=row6[i].name+row6[i].player;
+                p.src="./Images/" + gameBoard[5][i].player + "-" + gameBoard[5][i].name + ".jpg";
+                p.title=gameBoard[5][i].name+gameBoard[5][i].player;
             }
            
             this.row6.appendChild(p);
         }
         
-        for(var i=0; i<row7.length; i++){
+        for(var i=0; i<gameBoard[6].length; i++){
             let p = document.createElement("img");
-            if((row7[i]) == (null)){
+            if((gameBoard[6][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board7";
             }
             else{
-                p.src="./Images/" + row7[i].player + "-" + row7[i].name + ".jpg";
-                p.title=row7[i].name+row7[i].player;
+                p.src="./Images/" + gameBoard[6][i].player + "-" + gameBoard[6][i].name + ".jpg";
+                p.title=gameBoard[6][i].name+gameBoard[6][i].player;
             }
            
             this.row7.appendChild(p);
         }
         
-        for(var i=0; i<row8.length; i++){
+        for(var i=0; i<gameBoard[7].length; i++){
             let p = document.createElement("img");
-            if((row8[i]) == (null)){
+            if((gameBoard[7][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board8";
             }
             else{
-                p.src="./Images/" + row8[i].player + "-" + row8[i].name + ".jpg";
-                p.title=row8[i].name+row8[i].player;
+                p.src="./Images/" + gameBoard[7][i].player + "-" + gameBoard[7][i].name + ".jpg";
+                p.title=gameBoard[7][i].name+gameBoard[7][i].player;
             }
            
             this.row8.appendChild(p);
