@@ -11,9 +11,34 @@ class view{
         this.row6=document.getElementById("row6");
         this.row7=document.getElementById("row7");
         this.row8=document.getElementById("row8");
+        
+        this.row1.addEventListener("click",function(){
+                alert("Row 1");
+        });
+        this.row2.addEventListener("click",function(){
+                alert("Row 2");
+        });
+        this.row3.addEventListener("click",function(){
+                alert("Row 3");
+        });
+        this.row4.addEventListener("click",function(){
+                alert("Row 4");
+        });
+        this.row5.addEventListener("click",function(){
+                alert("Row 5");
+        });
+        this.row6.addEventListener("click",function(){
+                alert("Row 6");
+        });
+        this.row7.addEventListener("click",function(){
+                alert("Row 7");
+        });
+        this.row8.addEventListener("click",function(){
+                alert("Row 8");
+        });
     }
     
-    displayBoard(row1,row2,row3,row4,row5,row6,row7,row8){
+    displayBoard(gameBoard){
         while(this.row1.hasChildNodes()){
             this.row1.removeChild(this.row1.lastChild);
         }
@@ -38,57 +63,58 @@ class view{
         while(this.row8.hasChildNodes()){
             this.row8.removeChild(this.row8.lastChild);
         }
-        for(var i=0; i<row1.length; i++){
+        
+        for(var i=0; i<gameBoard[0].length; i++){
             let p = document.createElement("img");
-            if((row1[i]) == (null)){
+            if((gameBoard[0][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board1";
             }
             else{
-                p.src="./Images/" + row1[i].player + "-" + row1[i].name + ".jpg";
+                p.src="./Images/" + gameBoard[0][i].player + "-" + gameBoard[0][i].name + ".jpg";
                 //console.log(p.src);
-                p.title=row1[i].name+row1[i].player;
+                p.title=gameBoard[0][i].name+gameBoard[0][i].player;
             }
            
             this.row1.appendChild(p);
         }
         
-        for(var i=0; i<row2.length; i++){
+        for(var i=0; i<gameBoard[1].length; i++){
             let p = document.createElement("img");
-            if((row2[i]) == (null)){
+            if((gameBoard[1][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board2";
             }
             else{
-                p.src="./Images/" + row2[i].player + "-" + row2[i].name + ".jpg";
-                p.title=row2[i].name+row2[i].player;
+                p.src="./Images/" + gameBoard[1][i].player + "-" + gameBoard[1][i].name + ".jpg";
+                p.title=gameBoard[1][i].name+gameBoard[1][i].player;
             }
             this.row2.appendChild(p);
         }
         
-        for(var i=0; i<row3.length; i++){
+        for(var i=0; i<gameBoard[2].length; i++){
             let p = document.createElement("img");
-            if((row3[i]) == (null)){
+            if((gameBoard[2][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board3";
             }
             else{
-                p.src="./Images/" + row3[i].player + "-" + row3[i].name + ".jpg";
-                p.title=row3[i].name+row3[i].player;
+                p.src="./Images/" + gameBoard[2][i].player + "-" + gameBoard[2][i].name + ".jpg";
+                p.title=gameBoard[2][i].name+gameBoard[2][i].player;
             }
            
             this.row3.appendChild(p);
         }
         
-        for(var i=0; i<row4.length; i++){
+        for(var i=0; i<gameBoard[3].length; i++){
             let p = document.createElement("img");
-            if((row4[i]) == (null)){
+            if((gameBoard[3][i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board4";
             }
             else{
-                p.src="./Images/" + row4[i].player + "-" + row4[i].name + ".jpg";
-                p.title=row4[i].name+row4[i].player;
+                p.src="./Images/" + gameBoard[3][i].player + "-" + gameBoard[3][i].name + ".jpg";
+                p.title=gameBoard[3][i].name+gameBoard[3][i].player;
             }
             this.row4.appendChild(p);
         }

@@ -8,15 +8,15 @@ class piece{
         this.x=x;
         this.y=y;
         this.name=name;//what the piece is called
-        //this.legalMoves=[];
+        this.legalMoves=[];
     }
     
     move(x,y){//Update the position of this piece on the board
         this.pos.move(x,y);
     }
     
-    //bases on position of piece check possible places it can move to
-    checkLegalMoves(){
+    //Check if other pieces are in the way
+    isMoveLegal(){
         
     }
     

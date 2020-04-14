@@ -6,6 +6,10 @@ class pawn extends piece{
     }
     
     move(){
-        this.pos.move(this.pos.x+1,this.pos.y);
+        this.x+=1;
+    }
+    
+    updateLegalMoves(){//Each time this piece is moved update legal positions to move to
+        
     }
 }
