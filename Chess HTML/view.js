@@ -38,167 +38,112 @@ class view{
         while(this.row8.hasChildNodes()){
             this.row8.removeChild(this.row8.lastChild);
         }
-        this.displayrowone(row1);
-        this.displayrowtwo(row2);
-        this.displayrowthree(row3);
-        this.displayrowfour(row4);
-        this.displayrowfive(row5);
-        this.displayrowsix(row6);
-        this.displayrowseven(row7);
-        this.displayroweight(row8);
-    }
-    
-    displayrowone(row){
-        
-        for(var i=0; i<row.length; i++){
+        for(var i=0; i<row1.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row1[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board1";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row1[i].player + "-" + row1[i].name + ".jpg";
+                //console.log(p.src);
+                p.title=row1[i].name+row1[i].player;
             }
            
             this.row1.appendChild(p);
         }
-    }
-    
-    displayrowtwo(row){
         
-        for(var i=0; i<row.length; i++){
+        for(var i=0; i<row2.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row2[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board2";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row2[i].player + "-" + row2[i].name + ".jpg";
+                p.title=row2[i].name+row2[i].player;
             }
-           
             this.row2.appendChild(p);
         }
-    }
-    
-    
-    displayrowthree(row){
-
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row3.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row3[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board3";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row3[i].player + "-" + row3[i].name + ".jpg";
+                p.title=row3[i].name+row3[i].player;
             }
            
             this.row3.appendChild(p);
         }
-    }
-    displayrowfour(row){
-
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row4.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row4[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board4";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                //console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row4[i].player + "-" + row4[i].name + ".jpg";
+                p.title=row4[i].name+row4[i].player;
             }
-           
             this.row4.appendChild(p);
         }
-    }
-    
-    displayrowfive(row){
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row5.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row5[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board5";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row5[i].player + "-" + row5[i].name + ".jpg";
+                p.title=row5[i].name+row5[i].player;
             }
            
             this.row5.appendChild(p);
         }
-    }
-    
-    displayrowsix(row){
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row6.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row6[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board6";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row6[i].player + "-" + row6[i].name + ".jpg";
+                p.title=row6[i].name+row6[i].player;
             }
            
             this.row6.appendChild(p);
         }
-    }
-    
-    displayrowseven(row){
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row7.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row7[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board7";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row7[i].player + "-" + row7[i].name + ".jpg";
+                p.title=row7[i].name+row7[i].player;
             }
            
             this.row7.appendChild(p);
         }
-    }
-    
-    
-    displayroweight(row){
-        for(var i=0; i<row.length; i++){
+        
+        for(var i=0; i<row8.length; i++){
             let p = document.createElement("img");
-            if((row[i]) == (null)){
-                //console.log("Printing board");
+            if((row8[i]) == (null)){
                 p.src="./Images/board.jpg";
                 p.title="Board8";
             }
             else{
-                //console.log("printing a piece");
-                p.src="./Images/" + row[i].player + "-" + row[i].name + ".jpg";
-                console.log(p.src);
-                p.title=row[i].name+row[i].player;
+                p.src="./Images/" + row8[i].player + "-" + row8[i].name + ".jpg";
+                p.title=row8[i].name+row8[i].player;
             }
            
             this.row8.appendChild(p);
