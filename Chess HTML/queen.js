@@ -1,7 +1,7 @@
 class queen extends piece{
     
-    constructor(player,x,y){
-        super(player,x,y,"queen");
+    constructor(player,board,x,y){
+        super(player,board,x,y,"queen");
         this.updateLegalMoves();
     }
     

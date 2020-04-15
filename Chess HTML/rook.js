@@ -1,7 +1,7 @@
 class rook extends piece{
     
-    constructor(player, x,y){
-        super(player, x,y,"rook");
+    constructor(player,board,x,y){
+        super(player,board,x,y,"rook");
         this.updateLegalMoves();
     }
     

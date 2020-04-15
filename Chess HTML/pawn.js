@@ -1,12 +1,18 @@
 class pawn extends piece{
     
-    constructor(player, x,y){
-        super(player,x,y,"pawn");
+    constructor(player,board,x,y){
+        super(player,board,x,y,"pawn");
         this.hasMoved=false;
+        this.legalAttackx=[];
+        this.legalAttacky=[];
     }
     
-    move(){
+    move(x,y){
         this.x+=1;
+    }
+    
+    attack(x,y){
+        
     }
     
     updateLegalMoves(){
