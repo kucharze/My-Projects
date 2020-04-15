@@ -99,16 +99,37 @@ class Board{
     }
     
     markPiece(x,y){
+        console.log("Marking a piece");
         //mark the piece at the given coordinates
         //If no piece there alert the players
+        if((this.markedPiece)==(null)){
+            console.log("Marked piece null");
+            if(this.gameBoard[x][y]!=null){
+                console.log("Marked piece is something");
+                this.markedPiece=this.gameBoard[x][y];
+                console.log(this.markedPiece);
+            }
+            else{
+                alert("There is no piece there to move");
+            }
+        }
+        else{
+            console.log("Going to move piece");
+            this.movePiece(x,y);
+        }
+        
     }
     
     movePiece(x,y){//pending on turn move a piece on the board
-        
+        console.log("Inside move piece");
+        if(this.markedPiece.move(x,y)){
+            
+        }
+        this.markedPiece=null;
     }
     
-    checkSpot(pos){//check what is in the position at pos
-        
+    checkSpot(x,y){//check what is in the position at pos
+        return this.gameBoard[x][y];
     }
     
     performCapture(piece){//A piece has been captured, move it off the board

@@ -8,7 +8,8 @@ class piece{
         this.x=x;
         this.y=y;
         this.name=name;//what the piece is called
-        this.legalMoves=[];
+        this.legalx=[];
+        this.legaly=[];
     }
     
     move(x,y){//Update the position of this piece on the board

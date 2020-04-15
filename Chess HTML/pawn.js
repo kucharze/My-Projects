@@ -9,7 +9,8 @@ class pawn extends piece{
         this.x+=1;
     }
     
-    updateLegalMoves(){//Each time this piece is moved update legal positions to move to
+    updateLegalMoves(){
+        //Each time this piece is moved update legal positions to move to
         
     }
 }

@@ -13,6 +13,7 @@ class view{
         this.row6=document.getElementById("row6");
         this.row7=document.getElementById("row7");
         this.row8=document.getElementById("row8");
+        let self=this;
         
         this.row1.addEventListener("click",function(){
             //this.row1.childNodes;
@@ -21,6 +22,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 1 "+i);
+            self.board.markPiece(0,i);
         });
         this.row2.addEventListener("click",function(){
             let child=event.target;
@@ -28,6 +30,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 2 "+i);
+            self.board.markPiece(1,i);
         });
         this.row3.addEventListener("click",function(){
             let child=event.target;
@@ -35,6 +38,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 3 "+i);
+            self.board.markPiece(2,i);
         });
         this.row4.addEventListener("click",function(){
             let child=event.target;
@@ -42,6 +46,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 4 "+i);
+            self.board.markPiece(3,i);
         });
         this.row5.addEventListener("click",function(){
             let child=event.target;
@@ -49,6 +54,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 5 "+i);
+            self.board.markPiece(4,i);
         });
         this.row6.addEventListener("click",function(){
             let child=event.target;
@@ -56,6 +62,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 6 "+i);
+            self.board.markPiece(5,i);
         });
         this.row7.addEventListener("click",function(){
             let child=event.target;
@@ -63,6 +70,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 7 "+i);
+            self.board.markPiece(6,i);
         });
         this.row8.addEventListener("click",function(){
             let child=event.target;
@@ -70,6 +78,7 @@ class view{
             while( (child = child.previousSibling) != null ) 
               i++;
             alert("Row 8 "+i);
+            self.board.markPiece(7,i);
         });
     }
     
