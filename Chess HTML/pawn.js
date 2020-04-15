@@ -8,15 +8,22 @@ class pawn extends piece{
     }
     
     move(x,y){
-        this.x+=1;
+        if(this.player=="white"){//white player
+            
+        }
+        else{//black player
+            
+        }
     }
     
     attack(x,y){
-        
+        if(this.player=="white"){//white
+            
+        }
+        else{//black
+            
+        }
     }
     
-    updateLegalMoves(){
-        //Each time this piece is moved update legal positions to move to
-        
-    }
+    
 }

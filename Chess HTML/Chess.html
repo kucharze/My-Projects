@@ -6,7 +6,7 @@
     <body>
         <h1>Welcome to Chess</h1>
         <p>Click new game below to begin a new game!</p>
-        <button id="New" onclick="b.newGame()">New game</button>
+        <button id="New" onclick="b.resetGame()">New game</button>
         <br><br>
             <div id="row8"></div>
             <div id="row7"></div>
@@ -28,6 +28,7 @@
         <script src="view.js"></script>
         <script>
             var b=new Board();
+            b.newGame();
             
         </script>
     </body>

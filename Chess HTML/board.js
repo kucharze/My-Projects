@@ -84,23 +84,25 @@ class Board{
     
     movePiece(x,y){//pending on turn move a piece on the board
         console.log("Inside move piece");
-        let oldx=markedpiece.x;
-        let oldy=markedpiece.y;
+        let oldx=this.markedPiece.x;
+        let oldy=this.markedPiece.y;
         if(this.markedPiece.move(x,y)){
-            this.adjustPiece(x,y,1);
             this.adjustPiece(oldx,oldy,2);
-            
+            this.adjustPiece(x,y,1);
         }
         else{
             alert("Not a legal move");
         }
         this.markedPiece=null;
+        this.view.displayBoard(this.gameBoard);
     }
     
     adjustPiece(x,y,action){
         //either move or delete the piece
         if(action==1){//move piece
-            this.gameBoard[x,y]=this.markedPiece;
+            this.markedPiece.x=x;
+            this.markedPiece.y=y;
+            this.gameBoard[x][y]=this.markedPiece;
         }
         else{//delete piece
             this.gameBoard[x][y]=null;
@@ -123,7 +125,54 @@ class Board{
     }
     
     resetGame(){//reset the game
+        this.markedPiece=null;
+        //this.blackPlayer=new player("black",this);
+        //this.whitePlayer=new player("white",this);
+        this.whiteInCheck=false;
+        this.blackInCheck=false;
+        this.gameBoard=[
+            [new rook("white",this,0,0),
+             new knight("white",this,0,1),
+             new bishop("white",this,0,2),
+             new king("white",this,0,3), 
+             new queen("white",this,0,4),
+             new bishop("white",this,0,5),
+             new knight("white",this,0,6),
+             new rook("white",this,0,7)]
+                        
+             ,[new pawn("white",this,1,0), 
+             new pawn("white",this,1,1),
+             new pawn("white",this,1,2),
+             new pawn("white",this,1,3),
+             new pawn("white",this,1,4),
+             new pawn("white",this,1,5),
+             new pawn("white",this,1,6),
+             new pawn("white",this,1,7)]
+                        
+             ,[null,null,null,null,null,null,null,null]
+             ,[null,null,null,null,null,null,null,null]
+             ,[null,null,null,null,null,null,null,null]
+             ,[null,null,null,null,null,null,null,null]
+                   
+             ,[new pawn("black",this,6,0), 
+             new pawn("black",this,6,1),
+             new pawn("black",this,6,2),
+             new pawn("black",this,6,3),
+             new pawn("black",this,6,4),
+             new pawn("black",this,6,5),
+             new pawn("black",this,6,6),
+             new pawn("black",this,6,7)]
+                        
+             ,[new rook("black",this,7,0),
+             new knight("black",this,7,1),
+             new bishop("black",this,7,2),
+             new king("black",this,7,3), 
+             new queen("black",this,7,4),
+             new bishop("black",this,7,5),
+             new knight("black",this,7,6),
+             new rook("black",this,7,7)]];
         
+        this.view.displayBoard(this.gameBoard);
     }
     
 }

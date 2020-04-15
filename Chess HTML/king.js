@@ -2,22 +2,31 @@ class king extends piece{
     
     constructor(player,board,x,y){
         super(player,board,x,y,"king");
-        this.updateLegalMoves();
+        //this.updateLegalMoves();
     }
     
-    move(){
-        this.x+=1;
+    move(x,y){
+        if(x>this.x+1){
+            return false;
+        }
+        if(x<this.x-1){
+            return false;
+        }
+        if(y>this.y+1){
+            return false;
+        }
+        if(y<this.y-1){
+            return false;
+        }
+        return true;
     }
     
-    checkInCheck(){
+    checkInCheck(x,y){
         
     }
     
-    checkIfInCheck(){
+    checkIfInCheck(x,y){
         
     }
     
-    updateLegalMoves(){
-        
-    }
 }
