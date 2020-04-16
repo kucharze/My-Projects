@@ -7,21 +7,28 @@ class queen extends piece{
     
     move(x,y){
         if(x==this.x){
-            return true;
+            if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+                return true;
+            }
         }
         else if(y==this.y){
-            return true;
+            if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+                return true;
+            }
         }
         else{
             let xdiff=Math.abs(this.x-x);
             let ydiff=Math.abs(this.y-y);
 
             if(xdiff==ydiff){
+                if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
                 return true;
+            }
             }
             else{
                 return false;
             }
+            
         }
     }
     

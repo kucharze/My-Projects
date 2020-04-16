@@ -61,13 +61,10 @@ class Board{
     }
     
     markPiece(x,y){
-        console.log("Marking a piece");
         //mark the piece at the given coordinates
         //If no piece there alert the players
         if((this.markedPiece)==(null)){
-            console.log("Marked piece null");
             if(this.gameBoard[x][y]!=null){
-                console.log("Marked piece is something");
                 this.markedPiece=this.gameBoard[x][y];
                 console.log(this.markedPiece);
             }
@@ -76,14 +73,13 @@ class Board{
             }
         }
         else{
-            console.log("Going to move piece");
+            //console.log("Going to move piece");
             this.movePiece(x,y);
         }
         
     }
     
     movePiece(x,y){//pending on turn move a piece on the board
-        console.log("Inside move piece");
         let oldx=this.markedPiece.x;
         let oldy=this.markedPiece.y;
         if(this.markedPiece.move(x,y)){

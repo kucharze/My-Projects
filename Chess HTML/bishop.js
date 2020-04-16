@@ -10,7 +10,9 @@ class bishop extends piece{
         let ydiff=Math.abs(this.y-y);
         
         if(xdiff==ydiff){
-            return true;
+            if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+                return true;
+            }
         }
         else{
             return false;

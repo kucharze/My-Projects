@@ -7,10 +7,14 @@ class rook extends piece{
     
     move(x,y){
         if(x==this.x){
-            return true;
+            if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+                return true;
+            }
         }
         else if(y==this.y){
-            return true;
+            if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+                return true;
+            }
         }
         return false;
     }

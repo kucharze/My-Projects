@@ -18,7 +18,10 @@ class king extends piece{
         if(y<this.y-1){
             return false;
         }
-        return true;
+        if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+            return true;
+        }
+        
     }
     
     checkInCheck(x,y){

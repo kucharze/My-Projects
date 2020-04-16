@@ -43,18 +43,37 @@ class pawn extends piece{
                 }
             }
         }
-        this.hasMoved=true;
-        return true;
+        if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
+            this.hasMoved=true;
+            return true;
+        }
+        
     }
     
     attack(x,y){
-        return false;
+        console.log("Attacking");
+        if(y>this.y+1){
+            return false;
+        }
+        if(y<this.y-1){
+            return false;
+        }
+        
         if(this.player=="white"){//white
-            
+            if(x<this.x-1){
+                return false;
+            }
         }
         else{//black
-            
+            if(x<this.x-1){
+                false;
+            }
         }
+        
+        if((this.board.checkSpot(x,y)==null) || (this.board.checkSpot(x,y).player==this.player)){
+            return false;
+        }
+        return true;
     }
     
     upgrade(){
