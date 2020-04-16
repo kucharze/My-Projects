@@ -28,8 +28,11 @@ class queen extends piece{
             let ydiff=Math.abs(this.y-y);
 
             if(xdiff==ydiff){
-                if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
-                return true;
+                if(spot==null || spot.player!=this.player){
+                if(this.isMoveLegal(x,y,true)){
+                    console.log("Move is legal");
+                    return true;
+                }
             }
             }
             else{

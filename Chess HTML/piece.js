@@ -20,10 +20,52 @@ class piece{
     //Check if other pieces are in the way
     isMoveLegal(x,y,diagonal){
         if(diagonal){
-            console.log("Diagonal checking not implemented yet")
+            console.log("Diagonal");
+            let xs=x; let ys=y;
+            if(x>this.x){
+                console.log("X>this.x");
+                if(y>this.y){
+                    while(xs>this.x && ys>this.y){
+                        let spot = this.board.checkSpot(xs,ys);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                        xs--; ys--;
+                    }
+                }
+                else{
+                    while(xs>this.x && ys<this.y){
+                        let spot = this.board.checkSpot(xs,ys);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                        xs--; ys++;
+                    }
+                }
+            }
+            else{
+                if(y>this.y){
+                    while(xs<this.x && ys>this.y){
+                        let spot = this.board.checkSpot(xs,ys);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                        xs++; ys--;
+                    }
+                }
+                else{
+                    while(xs<this.x && ys<this.y){
+                        let spot = this.board.checkSpot(xs,ys);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                        xs++; ys++;
+                    }
+                }
+            }
         }
         else{
-            console.log("Moving striaght");
+            //console.log("Moving striaght");
             if(x==this.x){
                 console.log("X is the same");
                 if(y>this.y){
@@ -31,7 +73,7 @@ class piece{
                     for(var i=y; i>this.y; i--){
                         let spot=this.board.checkSpot(x,i);
                         if(spot!=null && spot.player==this.player){
-                            
+                            return false;
                         }
                     }
                 }

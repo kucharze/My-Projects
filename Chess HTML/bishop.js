@@ -11,7 +11,10 @@ class bishop extends piece{
         
         if(xdiff==ydiff){
             if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
-                return true;
+                if(this.isMoveLegal(x,y,true)){
+                    //console.log("Move is legal");
+                    return true;
+                }
             }
         }
         else{
