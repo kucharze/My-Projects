@@ -18,8 +18,56 @@ class piece{
     }
     
     //Check if other pieces are in the way
-    isMoveLegal(){
-        
+    isMoveLegal(x,y,diagonal){
+        if(diagonal){
+            console.log("Diagonal checking not implemented yet")
+        }
+        else{
+            console.log("Moving striaght");
+            if(x==this.x){
+                console.log("X is the same");
+                if(y>this.y){
+                    //console.log("y>this.y");
+                    for(var i=y; i>this.y; i--){
+                        let spot=this.board.checkSpot(x,i);
+                        if(spot!=null && spot.player==this.player){
+                            
+                        }
+                    }
+                }
+                else{
+                    //console.log("y<this.y");
+                    for(var i=y; i<this.y; i++){
+                        let spot=this.board.checkSpot(x,i);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                    }
+                }
+            }
+            if(y==this.y){
+                console.log("Y is the same");
+                if(x>this.x){
+                    //console.log("x>this.x");
+                    for(var i=x; i>this.x; i--){
+                        let spot=this.board.checkSpot(i,this.y);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                    }
+                }
+                else{
+                    //console.log("x>this.x");
+                    for(var i=x; i<this.x; i++){
+                        let spot=this.board.checkSpot(i,this.y);
+                        if(spot!=null && spot.player==this.player){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
     
     capture(){//Piece has been captured. Move it to the side

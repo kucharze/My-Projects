@@ -8,12 +8,18 @@ class rook extends piece{
     move(x,y){
         if(x==this.x){
             if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
-                return true;
+                if(this.isMoveLegal(x,y,false)){
+                    //console.log("Move is legal");
+                    return true;
+                }
             }
         }
         else if(y==this.y){
             if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
-                return true;
+                if(this.isMoveLegal(x,y,false)){
+                    //console.log("Move is legal");
+                    return true;
+                }
             }
         }
         return false;
