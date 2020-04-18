@@ -1,13 +1,20 @@
 class Board{
-    
+    //https://www.tutorialspoint.com/How-to-get-the-absolute-value-of-a-number-in-JavaScript
     constructor(){
         this.turn=1;
         this.view=new view(this);
         this.markedPiece=null;
+        this.prevx=0;
+        this.prevy=0;
+        //If a piece is captured set it to this piece
+        //Can undo the move if needbe
+        this.oldPiece=null;
         //this.blackPlayer=new player("black",this);
         //this.whitePlayer=new player("white",this);
         this.whiteInCheck=false;
         this.blackInCheck=false;
+        this.castled=false;
+        this.upgraded=false;
         this.gameBoard=[
             [new rook("white",this,0,0),
              new knight("white",this,0,1),
@@ -53,10 +60,10 @@ class Board{
     
     swapTurn(){
         if(this.turn==1){//white player turn
-            this.turn==2;
+            this.turn=2;
         }
         else{//black player turn
-            this.turn==1;
+            this.turn=1;
         }
     }
     
@@ -65,8 +72,20 @@ class Board{
         //If no piece there alert the players
         if((this.markedPiece)==(null)){
             if(this.gameBoard[x][y]!=null){
+                if(this.turn==1){
+                    if(this.gameBoard[x][y].player!="white"){
+                        alert("It is the white player's turn");
+                        return;
+                    }
+                }
+                else{
+                    if(this.gameBoard[x][y].player!="black"){
+                        alert("It is the black player's turn");
+                        return;
+                    }
+                }
                 this.markedPiece=this.gameBoard[x][y];
-                console.log(this.markedPiece);
+                //console.log(this.markedPiece);
             }
             else{
                 alert("There is no piece there to move");
@@ -80,15 +99,19 @@ class Board{
     }
     
     movePiece(x,y){//pending on turn move a piece on the board
-        let oldx=this.markedPiece.x;
-        let oldy=this.markedPiece.y;
+        this.prevx=this.markedPiece.x;
+        this.prevy=this.markedPiece.y;
         if(this.markedPiece.move(x,y)){
-            this.adjustPiece(oldx,oldy,2);
+            this.adjustPiece(this.prevx,this.prevy,2);
             this.adjustPiece(x,y,1);
         }
         else{
             alert("Not a legal move");
+            this.markedPiece=null;
+            return;
         }
+        
+        this.swapTurn();
         this.markedPiece=null;
         this.view.displayBoard(this.gameBoard);
     }
@@ -96,12 +119,60 @@ class Board{
     adjustPiece(x,y,action){
         //either move or delete the piece
         if(action==1){//move piece
+            this.oldPiece=this.gameBoard[x][y];
+            this.gameBoard[x][y]=this.markedPiece;
+            if(this.whiteInCheck || this.blackInCheck){
+                console.log("Check if move still has king in check of not, if so undo it.");
+            }
             this.markedPiece.x=x;
             this.markedPiece.y=y;
-            this.gameBoard[x][y]=this.markedPiece;
+            //console.log("Oldpiece"+this.oldPiece);
         }
         else{//delete piece
             this.gameBoard[x][y]=null;
+        }
+    }
+    
+    whiteCastleLeft(){
+        alert("White Castle left");
+        let perform=false;
+        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
+            alert("Cannot perform Castle");
+            perform=false;
+        }
+        
+        if(!perform){
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+        }
+            
+    }
+    
+    whiteCastleRight(){
+        alert("White Castle right");
+        let perform=false;
+        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
+            alert("Cannot perform Castle");
+            perform=false;
+        }
+        
+        if(!perform){
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+        }
+    }
+    
+    blackCastleLeft(){
+        alert("Black Castle left");
+        if(this.gameBoard[7][3]!=null && this.gameBoard[7][3].name=="king"){
+            
+        }
+    }
+    
+    blackCastleRight(){
+        alert("Black Castle right");
+        if(this.gameBoard[7][3]!=null && this.gameBoard[7][3].name=="king"){
+            
         }
     }
     

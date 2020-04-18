@@ -6,8 +6,10 @@
     <body>
         <h1>Welcome to Chess</h1>
         <p>Click new game below to begin a new game!</p>
-        <button id="New" onclick="b.resetGame()">New game</button>
+        <button id="Reset" onclick="b.resetGame()" style="font-size: 20px">New game</button>
         <br><br>
+        <button id="Black Left" onclick= "b.blackCastleLeft()" style="font-size: 20px">CastleLeft</button>
+        <button id="Black Right" onclick= "b.blackCastleRight()" style="font-size: 20px">CastleRight</button>
             <div id="row8"></div>
             <div id="row7"></div>
             <div id="row6"></div>
@@ -16,7 +18,10 @@
             <div id="row3"></div>
             <div id="row2"></div>
             <div id="row1"></div>
-        
+        <br>
+        <button id="White Left" onclick= "b.whiteCastleLeft()" style="font-size: 20px">CastleLeft</button>
+        <button id="White Right" onclick= "b.whiteCastleRight()" style="font-size: 20px">CastleRight</button>
+        <br>
         <script src="piece.js"></script>
         <script src="board.js"></script>
         <script src="pawn.js"></script>

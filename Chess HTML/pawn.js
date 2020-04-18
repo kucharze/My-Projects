@@ -8,8 +8,8 @@ class pawn extends piece{
     }
     
     move(x,y){
-        console.log(this.x+" " + this.y);
-        console.log(x+" " + y);
+        //console.log(this.x+" " + this.y);
+        //console.log(x+" " + y);
         if(y!=this.y){
             return this.attack(x,y);
         }
