@@ -2,7 +2,7 @@ class bishop extends piece{
     
     constructor(player,board,x,y){
         super(player,board,x,y,"bishop");
-        //this.updateLegalMoves();
+        this.capture=false;
     }
     
     move(x,y){

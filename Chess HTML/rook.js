@@ -3,7 +3,7 @@ class rook extends piece{
     constructor(player,board,x,y){
         super(player,board,x,y,"rook");
         this.hasMoved=false;
-        //this.updateLegalMoves();
+        this.capture=false;
     }
     
     move(x,y){

@@ -72,6 +72,7 @@ class Board{
         //If no piece there alert the players
         if((this.markedPiece)==(null)){
             if(this.gameBoard[x][y]!=null){
+                /*
                 if(this.turn==1){
                     if(this.gameBoard[x][y].player!="white"){
                         alert("It is the white player's turn");
@@ -84,6 +85,7 @@ class Board{
                         return;
                     }
                 }
+                */
                 this.markedPiece=this.gameBoard[x][y];
                 //console.log(this.markedPiece);
             }
@@ -134,46 +136,245 @@ class Board{
     }
     
     whiteCastleLeft(){
-        alert("White Castle left");
-        let perform=false;
-        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
-            alert("Cannot perform Castle");
-            perform=false;
+        if(this.turn!=1){
+            alert("It is the black Players turn");
+            return;
         }
-        
-        if(!perform){
+        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
+            //king not in position
+            alert("Cannot perform Castle");
             document.getElementById("White Left").disabled=true;
             document.getElementById("White Right").disabled=true;
+            return;
         }
-            
+        
+        if(this.gameBoard[0][0]==null || this.gameBoard[0][0].name!="rook" || this.gameBoard[0][0].player!="white"){
+            //rook not in position
+            alert("Cannot perform Castle");
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[0][3].hasMoved){
+            //king in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[0][0].hasMoved){
+            //Left castle in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("White Left").disabled=true;
+            return;
+        }
+        
+        for(var i=1; i<3; i++){
+            //check if spots in between pieces are empty
+            if(this.gameBoard[0][i]!=null){
+                alert("Cannot perform Castle");
+                return;
+            }
+        }
+        
+        let king=this.gameBoard[0][3];
+        let rook=this.gameBoard[0][0];
+        
+        this.gameBoard[0][1]=king;
+        this.gameBoard[0][1].hasMoved=true;
+        this.gameBoard[0][1].y=1;
+        this.gameBoard[0][3]=null;
+        
+        this.gameBoard[0][2]=rook;
+        this.gameBoard[0][2].y=2;
+        this.gameBoard[0][0]=null;
+        this.gameBoard[0][2].hasMoved=true;
+        
+        this.view.displayBoard(this.gameBoard);
+        document.getElementById("White Left").disabled=true;
+        document.getElementById("White Right").disabled=true;    
     }
     
     whiteCastleRight(){
-        alert("White Castle right");
-        let perform=false;
-        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
-            alert("Cannot perform Castle");
-            perform=false;
+        if(this.turn!=1){
+            alert("It is the black Players turn");
+            return;
         }
-        
-        if(!perform){
+        if(this.gameBoard[0][3]==null || this.gameBoard[0][3].name!="king" || this.gameBoard[0][3].player!="white"){
+            //king not in position
+            alert("Cannot perform Castle");
             document.getElementById("White Left").disabled=true;
             document.getElementById("White Right").disabled=true;
+            return;
         }
+        
+        if(this.gameBoard[0][7]==null || this.gameBoard[0][7].name!="rook" || this.gameBoard[0][7].player!="white"){
+            //rook not in position
+            alert("Cannot perform Castle");
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[0][3].hasMoved){
+            //king in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("White Left").disabled=true;
+            document.getElementById("White Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[0][7].hasMoved){
+            //Left castle in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("White Right").disabled=true;
+            return;
+        }
+        
+        for(var i=4; i<7; i++){
+            //check if spots in between pieces are empty
+            if(this.gameBoard[0][i]!=null){
+                alert("Cannot perform Castle");
+                return;
+            }
+        }
+        
+        let king=this.gameBoard[0][3];
+        let rook=this.gameBoard[0][7];
+        
+        this.gameBoard[0][5]=king;
+        this.gameBoard[0][5].y=1;
+        this.gameBoard[0][3]=null;
+        
+        this.gameBoard[0][4]=rook;
+        this.gameBoard[0][4].y=2;
+        this.gameBoard[0][7]=null;
+        
+        this.view.displayBoard(this.gameBoard);
+        document.getElementById("White Left").disabled=true;
+        document.getElementById("White Right").disabled=true; 
     }
     
     blackCastleLeft(){
-        alert("Black Castle left");
-        if(this.gameBoard[7][3]!=null && this.gameBoard[7][3].name=="king"){
-            
+        if(this.turn!=2){
+            alert("It is the black Players turn");
+            return;
         }
+        if(this.gameBoard[7][3]==null || this.gameBoard[7][3].name!="king" || this.gameBoard[7][3].player!="black"){
+            //king not in position
+            alert("Cannot perform Castle king");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][0]==null || this.gameBoard[7][0].name!="rook" || this.gameBoard[7][0].player!="black"){
+            //rook not in position
+            alert("Cannot perform Castle rook");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][3].hasMoved){
+            //king in correct position but has already moved
+            alert("Cannot perform Castle king moved");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][0].hasMoved){
+            //Left castle in correct position but has already moved
+            alert("Cannot perform Castle rook moved");
+            document.getElementById("Black Left").disabled=true;
+            return;
+        }
+        
+        for(var i=1; i<3; i++){
+            //check if spots in between pieces are empty
+            if(this.gameBoard[7][i]!=null){
+                alert("Cannot perform Castle");
+                return;
+            }
+        }
+        
+        let king=this.gameBoard[7][3];
+        let rook=this.gameBoard[7][0];
+        
+        this.gameBoard[7][1]=king;
+        this.gameBoard[7][1].y=1;
+        this.gameBoard[7][3]=null;
+        
+        this.gameBoard[7][2]=rook;
+        this.gameBoard[7][2].y=2;
+        this.gameBoard[7][0]=null;
+        
+        this.view.displayBoard(this.gameBoard);
+        document.getElementById("Black Left").disabled=true;
+        document.getElementById("Black Right").disabled=true; 
     }
     
     blackCastleRight(){
-        alert("Black Castle right");
-        if(this.gameBoard[7][3]!=null && this.gameBoard[7][3].name=="king"){
-            
+        if(this.turn!=1){
+            alert("It is the black Players turn");
+            return;
         }
+        if(this.gameBoard[7][3]==null || this.gameBoard[7][3].name!= "king" || this.gameBoard[7][3].player!="black"){
+            //king not in position
+            alert("Cannot perform Castle");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][7]==null || this.gameBoard[7][7].name!= "rook" || this.gameBoard[7][7].player!="black"){
+            //rook not in position
+            alert("Cannot perform Castle");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][3].hasMoved){
+            //king in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("Black Left").disabled=true;
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        if(this.gameBoard[7][7].hasMoved){
+            //Left castle in correct position but has already moved
+            alert("Cannot perform Castle");
+            document.getElementById("Black Right").disabled=true;
+            return;
+        }
+        
+        for(var i=4; i<7; i++){
+            //check if spots in between pieces are empty
+            if(this.gameBoard[7][i]!=null){
+                alert("Cannot perform Castle");
+                return;
+            }
+        }
+        
+        let king=this.gameBoard[7][3];
+        let rook=this.gameBoard[7][7];
+        
+        this.gameBoard[7][5]=king;
+        this.gameBoard[7][5].y=1;
+        this.gameBoard[7][3]=null;
+        
+        this.gameBoard[7][4]=rook;
+        this.gameBoard[7][4].y=2;
+        this.gameBoard[7][7]=null;
+        
+        this.view.displayBoard(this.gameBoard);
+        document.getElementById("Black Left").disabled=true;
+        document.getElementById("Black Right").disabled=true; 
     }
     
     checkSpot(x,y){//check what is in the position at pos

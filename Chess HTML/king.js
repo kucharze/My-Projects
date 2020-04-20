@@ -2,8 +2,8 @@ class king extends piece{
     
     constructor(player,board,x,y){
         super(player,board,x,y,"king");
-        this.moved=false;
-        //this.updateLegalMoves();
+        this.hasMoved=false;
+        this.capture=false;
     }
     
     move(x,y){
@@ -33,12 +33,6 @@ class king extends piece{
         
     }
     
-    castle(x,y){
-        if((y==0) || (y==7)){
-            //check if can castle
-             this.board.performCastle(x,y,this,x,this,y);
-        }
-    }
     
     checkInCheck(x,y){
         
