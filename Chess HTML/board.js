@@ -11,8 +11,6 @@ class Board{
         this.oldPiece=null;
         //this.blackPlayer=new player("black",this);
         //this.whitePlayer=new player("white",this);
-        this.whiteInCheck=false;
-        this.blackInCheck=false;
         this.castled=false;
         this.upgraded=false;
         this.gameBoard=[
@@ -56,6 +54,8 @@ class Board{
              new bishop("black",this,7,5),
              new knight("black",this,7,6),
              new rook("black",this,7,7)]];
+        this.whiteKing=this.gameBoard[0][3];
+        this.blackKing=this.gameBoard[7][3];
     }
     
     swapTurn(){
@@ -65,6 +65,11 @@ class Board{
         else{//black player turn
             this.turn=1;
         }
+    }
+    
+    upgradePiece(){
+        //turn a pawn into a queen
+        
     }
     
     markPiece(x,y){
@@ -104,15 +109,35 @@ class Board{
         this.prevx=this.markedPiece.x;
         this.prevy=this.markedPiece.y;
         if(this.markedPiece.move(x,y)){
-            this.adjustPiece(this.prevx,this.prevy,2);
-            this.adjustPiece(x,y,1);
+            if(this.adjustPiece(x,y,1)){
+                this.adjustPiece(this.prevx,this.prevy,2);
+            }
+            
         }
         else{
             alert("Not a legal move");
             this.markedPiece=null;
             return;
         }
+        //console.log("White king "+ this.whiteKing.x+" "+this.whiteKing.y);
+        //console.log("Black king "+this.blackKing.x + " "+ this.blackKing.y);
+        while(document.getElementById("check").hasChildNodes()){
+            document.getElementById("check").removeChild( document.getElementById("check").lastChild);
+        }
         
+        if(this.whiteKing.checkInCheck()){
+            document.getElementById("check").appendChild( document.createTextNode("White king in check"));
+        }
+        else{
+            document.getElementById("check").appendChild( document.createTextNode("White king not in check "));
+        }
+        if(this.blackKing.checkInCheck()){
+            document.getElementById("check").appendChild( document.createTextNode("Black king in check"));
+        }
+        else{
+            document.getElementById("check").appendChild( document.createTextNode("Black king not in check"));
+        }
+        //console.log("done all")
         this.swapTurn();
         this.markedPiece=null;
         this.view.displayBoard(this.gameBoard);
@@ -120,20 +145,58 @@ class Board{
     
     adjustPiece(x,y,action){
         //either move or delete the piece
+        //returns true if action succedded
+        let s=this;
+        let cap=false;
         if(action==1){//move piece
             this.oldPiece=this.gameBoard[x][y];
-            this.gameBoard[x][y]=this.markedPiece;
-            if(this.whiteInCheck || this.blackInCheck){
-                console.log("Check if move still has king in check of not, if so undo it.");
+            if(this.gameBoard[x][y]!=null){
+                this.markedPiece.capture=true;
+                cap=true;
             }
+            
+            this.gameBoard[x][y]=this.markedPiece;
+            
+            if(this.markedPiece.player=="white"){
+                console.log("checking white in check");
+                //check if white king in check, if so undo move
+                if(this.whiteKing.checkInCheck()){
+                    alert("Move not legal. White king still in check");
+                    this.gameBoard[x][y]=this.oldPiece;
+                    
+                    return false;
+                }
+            }
+            else if(this.markedPiece.player=="black"){
+                console.log("checking black in check");
+                //check if black king in check if so undo move
+                if(this.blackKing.checkInCheck()){
+                    alert("Move not legal. Black King still in check");
+                    this.gameBoard[x][y]=this.oldPiece;
+                    
+                    return false;
+                }
+            }
+            
+            
             this.markedPiece.x=x;
             this.markedPiece.y=y;
+            if(cap){
+                setTimeout(function(){
+                    //console.log(this);
+                    s.gameBoard[x][y].capture=false;
+                    s.view.displayBoard(s.gameBoard);
+                },800);
+            }
             //console.log("Oldpiece"+this.oldPiece);
+            return true;
         }
         else{//delete piece
             this.gameBoard[x][y]=null;
+            return true;
         }
     }
+    
     
     whiteCastleLeft(){
         if(this.turn!=1){
@@ -194,7 +257,8 @@ class Board{
         
         this.view.displayBoard(this.gameBoard);
         document.getElementById("White Left").disabled=true;
-        document.getElementById("White Right").disabled=true;    
+        document.getElementById("White Right").disabled=true;
+        this.swapTurn();
     }
     
     whiteCastleRight(){
@@ -254,7 +318,8 @@ class Board{
         
         this.view.displayBoard(this.gameBoard);
         document.getElementById("White Left").disabled=true;
-        document.getElementById("White Right").disabled=true; 
+        document.getElementById("White Right").disabled=true;
+        this.swapTurn();
     }
     
     blackCastleLeft(){
@@ -314,7 +379,8 @@ class Board{
         
         this.view.displayBoard(this.gameBoard);
         document.getElementById("Black Left").disabled=true;
-        document.getElementById("Black Right").disabled=true; 
+        document.getElementById("Black Right").disabled=true;
+        this.swapTurn();
     }
     
     blackCastleRight(){
@@ -374,19 +440,20 @@ class Board{
         
         this.view.displayBoard(this.gameBoard);
         document.getElementById("Black Left").disabled=true;
-        document.getElementById("Black Right").disabled=true; 
+        document.getElementById("Black Right").disabled=true;
+        this.swapTurn();
     }
     
     checkSpot(x,y){//check what is in the position at pos
+        if(x>7 || y>7 || x<0 || y<0){
+            return null;
+        }
         if(this.gameBoard[x][y]===null){
             return null;
         }
         return this.gameBoard[x][y];
     }
     
-    performCapture(piece){//A piece has been captured, move it off the board
-        
-    }
     
     newGame(){//starts and sets up a new game
         this.view.displayBoard(this.gameBoard);

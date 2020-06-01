@@ -3,6 +3,8 @@ class pawn extends piece{
     constructor(player,board,x,y){
         super(player,board,x,y,"pawn");
         this.hasMoved=false;
+        this.capture=false;
+        
         this.legalAttackx=[];
         this.legalAttacky=[];
     }
@@ -14,30 +16,30 @@ class pawn extends piece{
             return this.attack(x,y);
         }
         if(this.player=="white"){//white player
-            console.log("white");
+            //console.log("white");
             if(!this.hasMoved){//has not moved yet
-                console.log("Hasn't moved");
+                //console.log("Hasn't moved");
                 if(x>this.x+2){
                     return false;
                 }
             }
             else{
-                console.log("Has moved");
+                //console.log("Has moved");
                 if(x>this.x+1){
                     return false;
                 }
             }
         }
         else{//black player
-            console.log("black");
+            ///console.log("black");
             if(!this.hasMoved){//has not moved yet
-                console.log("Hasn't moved");
+                //console.log("Hasn't moved");
                 if(x<this.x-2){
                     return false;
                 }
             }
             else{
-                console.log("Has moved");
+                //console.log("Has moved");
                 if(x<this.x-1){
                     return false;
                 }
@@ -51,7 +53,7 @@ class pawn extends piece{
     }
     
     attack(x,y){
-        console.log("Attacking");
+        //console.log("Attacking");
         if(y>this.y+1){
             return false;
         }

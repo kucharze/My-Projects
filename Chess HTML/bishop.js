@@ -6,6 +6,7 @@ class bishop extends piece{
     }
     
     move(x,y){
+        //return this.moveTest();
         let xdiff=Math.abs(this.x-x);
         let ydiff=Math.abs(this.y-y);
         

@@ -7,6 +7,8 @@ class rook extends piece{
     }
     
     move(x,y){
+        //return this.moveTest();
+        
         if(x==this.x){
             if(this.board.checkSpot(x,y)==null || this.board.checkSpot(x,y).player!=this.player){
                 if(this.isMoveLegal(x,y,false)){
