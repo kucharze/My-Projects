@@ -67,7 +67,7 @@ class Board{
         }
     }
     
-    upgradePiece(){
+    upgradePiece(piece){
         //turn a pawn into a queen
         
     }
@@ -109,9 +109,8 @@ class Board{
         this.prevx=this.markedPiece.x;
         this.prevy=this.markedPiece.y;
         if(this.markedPiece.move(x,y)){
-            if(this.adjustPiece(x,y,1)){
-                this.adjustPiece(this.prevx,this.prevy,2);
-            }
+            this.adjustPiece(this.prevx,this.prevy,2);
+            this.adjustPiece(x,y,1);
             
         }
         else{
@@ -150,30 +149,32 @@ class Board{
         let cap=false;
         if(action==1){//move piece
             this.oldPiece=this.gameBoard[x][y];
-            if(this.gameBoard[x][y]!=null){
-                this.markedPiece.capture=true;
-                cap=true;
-            }
             
             this.gameBoard[x][y]=this.markedPiece;
             
+            
+            //check if move would put current player in check
             if(this.markedPiece.player=="white"){
                 console.log("checking white in check");
                 //check if white king in check, if so undo move
+                //console.log(this.whiteKing);
                 if(this.whiteKing.checkInCheck()){
-                    alert("Move not legal. White king still in check");
+                    console.log("White king in check");
+                    alert("Move not legal. White king would be in check");
                     this.gameBoard[x][y]=this.oldPiece;
-                    
+                    this.gameBoard[this.markedPiece.x][this.markedPiece.y]=this.markedPiece;
                     return false;
                 }
             }
             else if(this.markedPiece.player=="black"){
                 console.log("checking black in check");
                 //check if black king in check if so undo move
+                //console.log(this.blackKing);
                 if(this.blackKing.checkInCheck()){
-                    alert("Move not legal. Black King still in check");
+                    console.log("Black king in check");
+                    alert("Move not legal. Black King would be in check");
                     this.gameBoard[x][y]=this.oldPiece;
-                    
+                    this.gameBoard[this.markedPiece.x][this.markedPiece.y]=this.markedPiece;
                     return false;
                 }
             }
@@ -181,13 +182,7 @@ class Board{
             
             this.markedPiece.x=x;
             this.markedPiece.y=y;
-            if(cap){
-                setTimeout(function(){
-                    //console.log(this);
-                    s.gameBoard[x][y].capture=false;
-                    s.view.displayBoard(s.gameBoard);
-                },800);
-            }
+            
             //console.log("Oldpiece"+this.oldPiece);
             return true;
         }
